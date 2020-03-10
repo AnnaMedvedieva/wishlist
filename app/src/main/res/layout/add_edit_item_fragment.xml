@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="org.company.annamedvedieva.wishlist.addedititem.AddEditItemViewModel" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="org.company.annamedvedieva.wishlist.addedititem.AddEditItemFragment">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+                android:onClick="@{listener::onClick}"
+                android:scaleType="centerInside"
+                android:src="@{viewmodel.image}"
+                app:placeholder="@{@drawable/ic_add_a_photo_black_24dp}" />
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_what_do_you_wish_for"
+                android:inputType="text"
+                android:text="@={viewmodel.title}" />
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_notes"
+                android:inputType="text"
+                android:text="@={viewmodel.notes}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_link"
+                android:inputType="text"
+                android:text="@={viewmodel.link}" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

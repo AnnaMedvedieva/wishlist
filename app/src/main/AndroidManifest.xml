@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.company.annamedvedieva.wishlist">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name="org.company.annamedvedieva.wishlist.MyApplication"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="org.company.annamedvedieva.wishlist.addedititem.AddEditItemActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:label="Add new item"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity" />
+        </activity>
+        <activity android:name="org.company.annamedvedieva.wishlist.itemdetail.ItemDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity" />
+        </activity>
+        <activity
+            android:name="org.company.annamedvedieva.wishlist.addeditwishlist.AddEditWishlistActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_add_wishlist"
+            android:parentActivityName="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity" />
+        </activity>
+        <activity
+            android:name="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:parentActivityName="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity" />
+        </activity>
+        <activity
+            android:name="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.company.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
+    </application>
+
+</manifest>

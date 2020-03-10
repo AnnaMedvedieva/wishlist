@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity">
+
+    <item
+        android:title="@string/menu_edit"
+        android:id="@+id/action_edit"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="@string/menu_delete"
+        android:id="@+id/action_delete"
+        app:showAsAction="never" />
+
+
+</menu>

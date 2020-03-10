@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Wishlist</string>
+
+
+    <string name="title_activity_add_wishlist">Create new wishlist</string>
+
+    <string name="delete_item">Delete the item?</string>
+    <string name="delete_wishlist">Delete the wishlist and all of its contents?</string>
+    <string name="delete_yes">Delete</string>
+    <string name="delete_cancel">Cancel</string>
+    <string name="item_saved">Item saved</string>
+    <string name="wishlist_saved">Wishlist saved</string>
+    <string name="empty_item">Title cannot be empty</string>
+    <string name="item_deleted">Item deleted</string>
+    <string name="wishlist_deleted">Wishlist deleted</string>
+    <string name="hint_what_do_you_wish_for">What do you wish for?</string>
+    <string name="hint_notes">Notes</string>
+    <string name="hint_link">Link</string>
+    <string name="hint_list_title">List title</string>
+    <string name="slide_to_choose_the_image">Slide to choose the image</string>
+    <string name="hint_title">Title</string>
+    <string name="no_items">Add something you wish for by pressing + button</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
+    <string name="no_wishlists">Start adding wishlists by pressing + button</string>
+
+
+</resources>
