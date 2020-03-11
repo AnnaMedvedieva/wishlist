@@ -154,7 +154,7 @@ public class AddEditItemFragment extends Fragment {
             Log.d(TAG, "takePicture: error");
         }
         if (photoFile != null) {
-            photoURI = FileProvider.getUriForFile(mContext, "org.company.example.fileprovider",
+            photoURI = FileProvider.getUriForFile(mContext, "org.company.fileprovider",
                     photoFile);
             Log.d(TAG, "takePicture: " + photoURI);
             takePicture.putExtra(MediaStore.EXTRA_OUTPUT,
