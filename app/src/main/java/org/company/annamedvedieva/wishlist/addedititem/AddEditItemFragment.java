@@ -174,7 +174,8 @@ public class AddEditItemFragment extends Fragment {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
                 Locale.getDefault()).format(new Date());
         String imageFileName = "IMG" + timeStamp + "_";
-        File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "WishlistApp");
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
 
         if (!storageDir.exists()) {
             boolean s = new File(storageDir.getPath()).mkdirs();
@@ -198,24 +199,6 @@ public class AddEditItemFragment extends Fragment {
         return image;
     }
 
-    private void askPermissionToWriteExtStorage(){
-        if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                !=PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            // Show an explanation to the user *asynchronously* -- don't block
-            // this thread waiting for the user's response! After the user
-            // sees the explanation, try again to request the permission.
-            } else {
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    REQUEST_TO_ASK_EXTSTORAGE_PERMISSION);
-            }
-        }
-        else {
-            takePicture();
-        }
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -240,7 +223,7 @@ public class AddEditItemFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case 0:
-                                askPermissionToWriteExtStorage();
+                                takePicture();
                                 break;
                             case 1:
                                 chooseFromTheGallery();
