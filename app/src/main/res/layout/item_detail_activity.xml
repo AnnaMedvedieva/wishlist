@@ -8,6 +8,7 @@
     tools:context="org.company.annamedvedieva.wishlist.itemdetail.ItemDetailActivity" >
 
     <com.google.android.material.appbar.AppBarLayout
+        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,25 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize">
 
-            <!--<ImageButton-->
-                <!--android:id="@+id/delete_button"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="end"-->
-                <!--android:backgroundTint="@android:color/background_light"-->
-                <!--android:src="@android:drawable/ic_menu_delete" />-->
-
-            <!--<ImageButton-->
-                <!--android:id="@+id/edit_button"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="end"-->
-                <!--android:backgroundTint="@android:color/background_light"-->
-                <!--android:src="@android:drawable/ic_menu_edit" />-->
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 

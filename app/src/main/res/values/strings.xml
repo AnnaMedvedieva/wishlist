@@ -23,6 +23,7 @@
     <string name="menu_edit">Edit</string>
     <string name="menu_delete">Delete</string>
     <string name="no_wishlists">Start adding wishlists by pressing + button</string>
+    <string name="details_label">Item details</string>
 
 
 </resources>

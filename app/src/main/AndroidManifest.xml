@@ -28,6 +28,7 @@
         <activity android:name="org.company.annamedvedieva.wishlist.itemdetail.ItemDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:label="@string/details_label"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName="org.company.annamedvedieva.wishlist.listitems.ListItemsActivity">
         <meta-data

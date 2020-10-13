@@ -1,20 +1,17 @@
 package org.company.annamedvedieva.wishlist.addedititem;
 
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
@@ -33,6 +30,8 @@ import org.company.annamedvedieva.wishlist.data.WishlistRepository;
 import org.company.annamedvedieva.wishlist.databinding.AddEditItemFragmentBinding;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,7 +54,6 @@ public class AddEditItemFragment extends Fragment {
     private AddEditItemFragmentBinding mBinding;
     private AddEditItemViewModel mViewModel;
     private String imageFilePath;
-    private Uri photoURI;
 
     @Inject
     public WishlistRepository mRepository;
@@ -97,6 +95,7 @@ public class AddEditItemFragment extends Fragment {
         };
     }
 
+    //Save thumbnail from the camera or image from the gallery
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
@@ -104,6 +103,9 @@ public class AddEditItemFragment extends Fragment {
         switch (requestCode) {
             case REQUEST_FOR_CAMERA:
                 if (resultCode == RESULT_OK) {
+                    Bundle extras = imageReturnedIntent.getExtras();
+                    Bitmap imageBitmap = (Bitmap) extras.get("data");
+                    saveImage(imageBitmap);
                     mViewModel.setImage(imageFilePath);
                     galleryAddPic();
                 }
@@ -114,6 +116,24 @@ public class AddEditItemFragment extends Fragment {
                     mViewModel.setImage(imageReturnedIntent.getData().toString());
                 }
                 break;
+        }
+    }
+
+    private void saveImage(Bitmap imageBitmap) {
+        File pictureFile = createImageFile();
+        if (pictureFile == null) {
+            Log.d(TAG,
+                    "Error creating media file, check storage permissions: ");// e.getMessage());
+            return;
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(pictureFile);
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            Log.d(TAG, "File not found: " + e.getMessage());
+        } catch (IOException e) {
+            Log.d(TAG, "Error accessing file: " + e.getMessage());
         }
     }
 
@@ -129,7 +149,6 @@ public class AddEditItemFragment extends Fragment {
         mViewModel.createOrUpdateItem(wishlistId);
     }
 
-
     private void createSnackbar() {
         mViewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), new Observer<Event<Integer>>() {
             @Override
@@ -144,25 +163,14 @@ public class AddEditItemFragment extends Fragment {
 
     private void takePicture() {
         Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        //Create a file to store the image
         Log.d(TAG, "takePicture: start intent");
-        File photoFile = null;
+
         try {
-            photoFile = createImageFile();
-        } catch (IOException ex) {
-            // Error occurred while creating the File
+            startActivityForResult(takePicture, REQUEST_FOR_CAMERA);
+        } catch (ActivityNotFoundException ex) {
             Log.d(TAG, "takePicture: error");
         }
-        if (photoFile != null) {
-            photoURI = FileProvider.getUriForFile(mContext, "org.company.fileprovider",
-                    photoFile);
-            Log.d(TAG, "takePicture: " + photoURI);
-            takePicture.putExtra(MediaStore.EXTRA_OUTPUT,
-                    photoURI);
-            startActivityForResult(takePicture, REQUEST_FOR_CAMERA);
-        }
     }
-
 
     private void chooseFromTheGallery() {
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,
@@ -170,12 +178,11 @@ public class AddEditItemFragment extends Fragment {
         startActivityForResult(pickPhoto, REQUEST_FOR_GALLERY);
     }
 
-    private File createImageFile() throws IOException {
+    private File createImageFile() {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
                 Locale.getDefault()).format(new Date());
         String imageFileName = "IMG" + timeStamp + "_";
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-
 
         if (!storageDir.exists()) {
             boolean s = new File(storageDir.getPath()).mkdirs();
@@ -188,11 +195,16 @@ public class AddEditItemFragment extends Fragment {
             Log.v("directory", "directory exists");
         }
 
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",/* suffix */
-                storageDir/* directory */
-        );
+        File image = null;
+        try {
+            image = File.createTempFile(
+                    imageFileName,  /* prefix */
+                    ".jpg",/* suffix */
+                    storageDir/* directory */
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         imageFilePath = image.getAbsolutePath();
         Log.d(TAG, "createImageFile: " + imageFilePath);
@@ -207,11 +219,9 @@ public class AddEditItemFragment extends Fragment {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     takePicture();
-
             }
         }
     }
-
 
     private void showImageDialog(){
         String [] imageOptions = {"Take picture", "Choose from the gallery", "Cancel"};
@@ -237,7 +247,7 @@ public class AddEditItemFragment extends Fragment {
     }
 
     private void loadData() {
-        // Add or edit an existing item?
+        // Add or edit an existing item
         if (getArguments() != null) {
             Log.d(TAG, "loadData: " + getArguments().getString("item_id"));
             mViewModel.start(getArguments().getString("item_id"));

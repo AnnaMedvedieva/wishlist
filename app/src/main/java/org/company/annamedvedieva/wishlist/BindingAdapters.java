@@ -17,18 +17,10 @@ public class BindingAdapters {
     @BindingAdapter(value={"android:src", "placeholder"}, requireAll=false)
     public static void setImageResource(ImageView imageView, String imageResource,
                                         Drawable placeHolder) {
-        if (imageResource == null) {
-            imageView.setImageDrawable(placeHolder);
-        } else {
-            Glide.with(imageView.getContext()).load(imageResource).placeholder(placeHolder).into(imageView);
+            Glide.with(imageView.getContext()).load(imageResource)
+                    .placeholder(placeHolder)
+                    .into(imageView);
         }
-    }
-
-//    @BindingAdapter("adapter")
-//    public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter){
-//        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-//        recyclerView.setAdapter(adapter);
-//    }
 
 }
 

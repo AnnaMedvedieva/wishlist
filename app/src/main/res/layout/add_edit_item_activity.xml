@@ -9,6 +9,7 @@
     tools:context="org.company.annamedvedieva.wishlist.addedititem.AddEditItemActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -16,7 +17,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize">
 
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:backgroundTint="@android:color/background_light"
+                android:backgroundTint="@color/GhostWhite"
                 android:src="@drawable/ic_done_black_24dp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
