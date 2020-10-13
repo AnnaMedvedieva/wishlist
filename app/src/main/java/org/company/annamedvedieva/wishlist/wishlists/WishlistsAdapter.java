@@ -91,8 +91,5 @@ public class WishlistsAdapter extends RecyclerView.Adapter<WishlistsAdapter.View
             super(binding.getRoot());
             this.binding = binding;
         }
-
-
-
     }
 }

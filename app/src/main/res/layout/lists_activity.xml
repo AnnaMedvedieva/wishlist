@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/wishlists"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wishlists"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/GhostWhite"
     tools:context="org.company.annamedvedieva.wishlist.wishlists.WishlistsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -24,20 +23,16 @@
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
 
-
             <ImageView
-                android:src="@drawable/main_header3"
+                android:id="@+id/collapsing_image"
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
-                app:layout_collapseMode="parallax"
                 android:scaleType="centerCrop"
-                android:id="@+id/collapsing_image"
-                />
+                android:src="@drawable/main_header3"
+                app:layout_collapseMode="parallax" />
 
 
-
-
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -55,9 +50,9 @@
     <FrameLayout
 
         android:id="@+id/fragment_placeholder"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </FrameLayout>

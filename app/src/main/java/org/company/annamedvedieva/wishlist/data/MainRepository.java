@@ -7,7 +7,6 @@ import java.util.List;
 //Created for testing purposes to make a Repository double
 public interface MainRepository {
 
-
     LiveData<List<Item>> getAllItems(String listId);
 
     LiveData<List<Wishlist>> getAllWishlists();

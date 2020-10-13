@@ -13,7 +13,6 @@ public class BindingAdapters {
             Glide.with(imageView.getContext()).load(imageResource).into(imageView);
         }
 
-
     @BindingAdapter(value={"android:src", "placeholder"}, requireAll=false)
     public static void setImageResource(ImageView imageView, String imageResource,
                                         Drawable placeHolder) {

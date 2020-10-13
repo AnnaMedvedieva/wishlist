@@ -9,14 +9,15 @@
     tools:context="org.company.annamedvedieva.wishlist.addeditwishlist.AddEditWishlistActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/GhostWhite">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/GhostWhite"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize">
 
@@ -35,6 +36,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

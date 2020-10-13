@@ -116,6 +116,4 @@ public class AddEditItemActivity extends AppCompatActivity {
         return new ViewModelProvider(activity, mFactory).get(AddEditItemViewModel.class);
     }
 
-
-
 }

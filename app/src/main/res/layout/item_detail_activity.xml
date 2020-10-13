@@ -1,21 +1,21 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.company.annamedvedieva.wishlist.itemdetail.ItemDetailActivity" >
+    tools:context="org.company.annamedvedieva.wishlist.itemdetail.ItemDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/GhostWhite">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/GhostWhite"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize">
 
@@ -26,7 +26,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

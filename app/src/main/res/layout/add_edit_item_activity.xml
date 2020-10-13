@@ -9,14 +9,15 @@
     tools:context="org.company.annamedvedieva.wishlist.addedititem.AddEditItemActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/GhostWhite">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/GhostWhite"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize">
 

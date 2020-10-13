@@ -104,6 +104,4 @@ public class AddEditWishlistActivity extends AppCompatActivity {
         });
     }
 
-
-
 }

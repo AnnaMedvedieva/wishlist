@@ -29,7 +29,6 @@ public class DbModule {
 
     public static WishlistDatabase mWishlistDatabase;
 
-
     @Inject
     public void buildDatabase(Context context){
         mWishlistDatabase = Room.databaseBuilder(context,

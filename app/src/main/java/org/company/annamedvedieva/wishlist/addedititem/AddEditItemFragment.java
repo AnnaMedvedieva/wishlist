@@ -172,11 +172,13 @@ public class AddEditItemFragment extends Fragment {
         }
     }
 
+
     private void chooseFromTheGallery() {
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(pickPhoto, REQUEST_FOR_GALLERY);
     }
+
 
     private File createImageFile() {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
@@ -223,6 +225,7 @@ public class AddEditItemFragment extends Fragment {
         }
     }
 
+
     private void showImageDialog(){
         String [] imageOptions = {"Take picture", "Choose from the gallery", "Cancel"};
 
@@ -245,6 +248,7 @@ public class AddEditItemFragment extends Fragment {
                 });
          builder.show();
     }
+
 
     private void loadData() {
         // Add or edit an existing item

@@ -82,7 +82,7 @@ public class AddEditWishlistFragment extends Fragment {
     }
 
     private void loadData() {
-        // Add or edit an existing wishlist?
+        // Add or edit an existing wishlist
         if (getArguments() != null) {
             mViewModel.start(getArguments().getString("wishlist_id"));
         } else {

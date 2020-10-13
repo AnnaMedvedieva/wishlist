@@ -22,8 +22,6 @@ public class ListItemsViewModel extends ViewModel {
     public MutableLiveData<Item> item = new MutableLiveData<>();
     private MutableLiveData<String> mItemId = new MutableLiveData<>();
 
-
-
     @Inject
     public ListItemsViewModel(MainRepository rep){
         this.mRepository = rep;
@@ -34,7 +32,6 @@ public class ListItemsViewModel extends ViewModel {
         return allItems;
     }
 
-
     public void deleteWishlist(String wishlistId){
         mRepository.deleteWishList(wishlistId);
     }
@@ -42,7 +39,6 @@ public class ListItemsViewModel extends ViewModel {
     public Wishlist getWishlistById(String listId){
         return mRepository.getWishlist(listId);
     }
-
 
     public void setItem(Item newItem) {
         item.setValue(newItem);

@@ -13,12 +13,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_item"
-        android:backgroundTint="@color/GhostWhite"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/GhostWhite"
         app:cardCornerRadius="2dp">
 
         <LinearLayout
@@ -38,13 +38,13 @@
                     android:id="@+id/item_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textIsSelectable="true"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@{viewmodel.item.itemTitle}"
                     android:textColor="@android:color/darker_gray"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
+                    android:textIsSelectable="true"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/item_notes"
@@ -60,16 +60,13 @@
 
             <ImageView
                 android:id="@+id/image"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_margin="4dp"
                 android:adjustViewBounds="true"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_gravity="end"
                 android:scaleType="centerCrop"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginEnd="4dp"
                 android:src="@{viewmodel.item.imageResource}"
-                app:placeholder="@{@drawable/placeholder}"/>
+                app:placeholder="@{@drawable/placeholder}" />
 
 
         </LinearLayout>

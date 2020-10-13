@@ -9,13 +9,11 @@
         <variable
             name="viewmodel"
             type="org.company.annamedvedieva.wishlist.wishlists.WishlistsViewModel" />
-
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/GhostWhite"
         tools:context="org.company.annamedvedieva.wishlist.wishlists.WishlistsFragment">
 
         <androidx.recyclerview.widget.RecyclerView

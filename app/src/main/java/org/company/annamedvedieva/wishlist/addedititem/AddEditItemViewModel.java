@@ -52,7 +52,6 @@ public class AddEditItemViewModel extends ViewModel {
     }
 
 
-
     private void saveItem(Item item){
         mRepository.insertItem(item);
         mItemUpdated.setValue(new Event<>(new Object()));
@@ -79,7 +78,6 @@ public class AddEditItemViewModel extends ViewModel {
     }
 
     public LiveData<Event<Object>> getUpdateEvent(){ return mItemUpdated; }
-
 
     private static boolean empty( final String s ) {
         return s == null || s.trim().isEmpty();

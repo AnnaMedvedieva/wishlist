@@ -29,7 +29,6 @@ public class ItemDetailViewModel extends ViewModel {
 
     }
 
-
     public void deleteItem(String itemId){
         mRepository.deleteItem(itemId);
         itemDeleted.setValue(new Event<>(new Object()));

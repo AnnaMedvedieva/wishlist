@@ -80,10 +80,6 @@ public class ItemDetailActivity extends AppCompatActivity implements DeleteDialo
 
         fragmentTransaction.add(R.id.fragment_container, mItemDetailFragment);
         fragmentTransaction.commit();
-
-
-
-
     }
 
     public static ItemDetailViewModel createViewModel(FragmentActivity activity, WishlistRepository repository){
