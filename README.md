@@ -1,7 +1,7 @@
 # Wishlist app
 
 App for creating wishlists. 
-User can add item's image from gallery or take a picture. 
+User can add the item's image from the gallery or take a picture. 
 
 ## Screenshots
 ![main_screen](https://github.com/AnnaMedvedieva/wishlist/blob/master/screenshots/wishlist_main.png)
